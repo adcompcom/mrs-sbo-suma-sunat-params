@@ -1,15 +1,20 @@
 package pe.adcomp.suma.sunat.params.dto;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-/**
- * DTO para CambioSunat
- */
+@Schema(description = "Tipo de cambio oficial SUNAT (Dólar Estadounidense)")
 public class CambioSunatDTO {
 
+    @Schema(description = "Fecha del tipo de cambio", example = "2025-11-06")
     private LocalDate fecha;
+    
+    @Schema(description = "Tipo de cambio para compra", example = "3.750")
     private BigDecimal compra;
+    
+    @Schema(description = "Tipo de cambio para venta", example = "3.755")
     private BigDecimal venta;
 
     // Constructores

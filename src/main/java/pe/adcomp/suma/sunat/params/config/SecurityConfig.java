@@ -32,6 +32,14 @@ public class SecurityConfig {
             .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(authorizeRequests ->
                 authorizeRequests
+                    // Permitir acceso sin autenticación a Swagger UI y API Docs
+                    .requestMatchers(
+                        "/swagger-ui/**",
+                        "/swagger-ui.html",
+                        "/api-docs/**",
+                        "/v3/api-docs/**"
+                    ).permitAll()
+                    // Todos los demás endpoints requieren autenticación
                     .anyRequest().authenticated()
             )
             .oauth2ResourceServer(oauth2 -> oauth2
