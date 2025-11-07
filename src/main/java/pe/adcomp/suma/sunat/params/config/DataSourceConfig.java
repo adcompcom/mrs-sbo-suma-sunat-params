@@ -21,7 +21,7 @@ public class DataSourceConfig {
     @Primary
     public DataSource jpaDataSource(DataSourceProperties dataSourceProperties) {
          logger.info("[CONFIG] Creando MySQL DataSource para JPA");
-        dataSourceProperties.setUrl(dataSourceProperties.getUrl().concat("bdsupra?useSSL=false&serverTimezone=UTC"));
+        dataSourceProperties.setUrl(dataSourceProperties.getUrl().concat("bdsupra?serverTimezone=UTC&allowPublicKeyRetrieval=true&useSSL=false"));
         return dataSourceProperties.initializeDataSourceBuilder().build();
     }
 }
