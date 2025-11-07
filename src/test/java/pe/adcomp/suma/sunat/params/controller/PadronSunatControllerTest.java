@@ -3,6 +3,7 @@ package pe.adcomp.suma.sunat.params.controller;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
@@ -20,8 +21,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * No levanta el servidor completo
  */
 @WebMvcTest(PadronSunatController.class)
+@AutoConfigureMockMvc(addFilters = false)
 @DisplayName("Pruebas unitarias de PadronSunatController")
-@SuppressWarnings("unchecked")
 class PadronSunatControllerTest {
 
     @Autowired
