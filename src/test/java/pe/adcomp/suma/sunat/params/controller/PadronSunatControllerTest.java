@@ -49,9 +49,9 @@ class PadronSunatControllerTest {
         mockMvc.perform(get("/api/padron-sunat/buscar")
                         .param("documento", "20123456789"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.ruc", is(20123456789L)))
-                .andExpect(jsonPath("$.nombreRazonSocial", is("EMPRESA XYZ S.A.")))
-                .andExpect(jsonPath("$.estadoContribuyente", is("Habido")));
+                .andExpect(jsonPath("$.ruc", equalTo(20123456789L)))
+                .andExpect(jsonPath("$.nombreRazonSocial", equalTo("EMPRESA XYZ S.A.")))
+                .andExpect(jsonPath("$.estadoContribuyente", equalTo("Habido")));
 
         verify(padronSunatService, times(1)).buscarPorDocumento("20123456789");
     }
