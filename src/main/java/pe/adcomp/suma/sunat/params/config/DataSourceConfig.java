@@ -21,7 +21,10 @@ public class DataSourceConfig {
     @Primary
     public DataSource jpaDataSource(DataSourceProperties dataSourceProperties) {
          logger.info("[CONFIG] Creando MySQL DataSource para JPA");
-        dataSourceProperties.setUrl(dataSourceProperties.getUrl().concat("bdsupra?serverTimezone=UTC&allowPublicKeyRetrieval=true&useSSL=false"));
+        // Configurar URL con parámetros de optimización para inserciones masivas
+        dataSourceProperties.setUrl(dataSourceProperties.getUrl().concat("bdsupra?serverTimezone=UTC&allowPublicKeyRetrieval=true&useSSL=false&rewriteBatchedStatements=true&cachePrepStmts=true&useServerPrepStmts=true"));
+        // Asegurar que use el driver de MySQL
+        dataSourceProperties.setDriverClassName("com.mysql.cj.jdbc.Driver");
         return dataSourceProperties.initializeDataSourceBuilder().build();
     }
 }
