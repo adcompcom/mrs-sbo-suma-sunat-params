@@ -56,7 +56,7 @@ public class OpenApiConfig {
                                 .type(SecurityScheme.Type.HTTP)
                                 .scheme("bearer")
                                 .bearerFormat("JWT")
-                                .description("Ingrese el token JWT obtenido del servicio de autenticación AWS Cognito")))
+                                .description("Ingrese el token JWT obtenido del servicio de autenticación OAuth2 (mrs-sbo-suma-oauth)")))
                 // Aplicar seguridad globalmente a todos los endpoints
                 .addSecurityItem(new SecurityRequirement().addList(SECURITY_SCHEME_NAME));
     }
