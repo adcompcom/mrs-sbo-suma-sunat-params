@@ -7,6 +7,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
+import pe.adcomp.suma.sunat.params.config.JtiValidationFilter;
 import pe.adcomp.suma.sunat.params.dto.PadronSunatDTO;
 import pe.adcomp.suma.sunat.params.service.PadronSunatService;
 
@@ -30,6 +31,9 @@ class PadronSunatControllerTest {
 
     @MockitoBean
     private PadronSunatService padronSunatService;
+
+    @MockitoBean
+    private JtiValidationFilter jtiValidationFilter;
 
     // ========================= PRUEBAS DE BÚSQUEDA POR DOCUMENTO =========================
 
